@@ -1,90 +1,104 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import SubmitAnimals from "./SubmitAnimals";
 
 function HomePage() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://my-api-nwy2.onrender.com/");
-        setData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const renderData = (data) => {
-    return (
-      <div>
-        {Object.keys(data).map((key) => (
-          <div key={key}>{JSON.stringify(data[key], null, 2)}</div>
-        ))}
-      </div>
-    );
-  };
-
   return (
-    <div>
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500">
-        {/* Navigation Bar */}
-        <nav className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-white font-bold text-xl">
-              Prediction<span className="text-blue-300">Project</span>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a
-                href="#"
-                className="text-blue-100 hover:text-white transition duration-300"
-              >
-                Features
-              </a>
-              <a
-                href="#"
-                className="text-blue-100 hover:text-white transition duration-300"
-              >
-                About
-              </a>
-              <a
-                href="#"
-                className="text-blue-100 hover:text-white transition duration-300"
-              >
-                Contact
-              </a>
-            </div>
-          </div>
-        </nav>
+    <div className="relative overflow-hidden">
+      {/* Hero Section */}
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 pt-24">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Content Section */}
+            <div className="flex-1 text-center lg:text-left space-y-8">
+              <div className="max-w-2xl mx-auto lg:mx-0">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  Intelligent Animal Recognition System
+                </h1>
+                <p className="text-lg md:text-xl text-blue-100 mb-8">
+                  Leverage advanced machine learning to accurately identify 10
+                  distinct animal species from any image. Our AI-powered
+                  solution delivers instant classification with industry-leading
+                  accuracy.
+                </p>
+              </div>
 
-        {/* Hero Content */}
-        <div className="container mx-auto px-6 py-20">
-          <div className="flex flex-col md:flex-row items-center">
-            {/* Text Content */}
-            <div className="md:w-1/2 text-center md:text-left mb-16 md:mb-0">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Welcome to the Prediction models
-              </h1>
-              <p className="text-lg md:text-xl text-blue-100 mb-8">
-                {data ? renderData(data) : <p>Loading...</p>}
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className="bg-white text-blue-900 px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition duration-300 shadow-lg">
-                  Get Started
-                </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-900 transition duration-300">
-                  Learn More
-                </button>
+              {/* Supported Animals Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 max-w-2xl">
+                {[
+                  "Dog",
+                  "Horse",
+                  "Elephant",
+                  "Butterfly",
+                  "Chicken",
+                  "Cat",
+                  "Cow",
+                  "Spider",
+                  "Sheep",
+                  "Squirrel",
+                ].map((animal) => (
+                  <div
+                    key={animal}
+                    className="bg-white/10 backdrop-blur-sm rounded-lg p-2 text-center"
+                  >
+                    <span className="text-blue-100 font-medium">{animal}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a
+                  href="https://github.com/ChaitanyaKottapalli/my-api"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3 flex items-center justify-center gap-2 bg-white/20 hover:bg-white/30 border-2 border-white/30 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-lg"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    />
+                  </svg>
+                  API Source Code
+                </a>
+                <a
+                  href="https://github.com/SaiSrikanthChodimella/prediction_project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3 flex items-center justify-center gap-2 bg-white text-blue-900 hover:bg-blue-50 border-2 border-white rounded-full font-semibold transition-all duration-300 hover:shadow-lg"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                  UI Source Code
+                </a>
               </div>
             </div>
-            <SubmitAnimals />
+
+            {/* Input Card */}
+            <div className="w-full lg:flex-1 max-w-xl xl:max-w-2xl">
+              <SubmitAnimals />
+            </div>
           </div>
         </div>
 
-        {/* Curved Divider */}
+        {/* Wave Transition */}
         <div className="relative -mb-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
