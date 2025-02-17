@@ -1,4 +1,3 @@
-// Navbar.jsx
 import { useState } from "react";
 
 export default function Navbar({ scrollToSection, refs }) {
@@ -11,7 +10,7 @@ export default function Navbar({ scrollToSection, refs }) {
 
   const handleNavigation = (ref) => {
     scrollToSection(ref);
-    setIsMenuOpen(false); // Close mobile menu after navigation
+    setIsMenuOpen(false);
   };
 
   return (

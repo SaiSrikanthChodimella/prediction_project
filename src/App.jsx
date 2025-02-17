@@ -1,5 +1,4 @@
-// App.jsx
-import NavBar from "./NavBar";
+import NavBar from "./Navbar";
 import Homepage from "./Homepage";
 import APIDocumentation from "./APIDocumentation";
 import Footer from "./Footer";

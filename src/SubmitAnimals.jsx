@@ -1,4 +1,3 @@
-// SubmitAnimals.jsx
 import { useState } from "react";
 import axios from "axios";
 import { ResultModal } from "./ResultModal";
@@ -10,7 +9,6 @@ export default function SubmitAnimals() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // SubmitAnimals.jsx
   async function search(event) {
     event.preventDefault();
     setError(null);

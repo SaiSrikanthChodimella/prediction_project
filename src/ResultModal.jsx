@@ -1,4 +1,3 @@
-// ResultModal.jsx
 import { useEffect } from "react";
 
 export function ResultModal({ show, onClose, result, error, isLoading }) {
